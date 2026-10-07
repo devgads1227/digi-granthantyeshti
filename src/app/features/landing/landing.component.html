@@ -1,0 +1,84 @@
+<header class="site-header">
+ <div class="brand">
+  <span class="brand-main">Digi-Granth<span class="brand-faded">Antyeshti</span></span>
+</div>  
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+  </nav>
+</header>
+
+<main class="landing">
+
+  <section class="welcome-card">
+
+    <div class="eyebrow">
+      DIGI-GRANTHANTYESHTI
+    </div>
+
+    <h1>
+      Welcome to a formalization of<br>
+      disposing your documents... ritually.
+    </h1>
+
+    <p class="intro">
+      Antyeshti is a traditional final rite — a formal way of bringing
+      something to its end. A <em>grantha</em> is a written work, text,
+      book, or manuscript.
+    </p>
+
+    <p class="intro">
+      So why shouldn't your digital grantha receive a proper final
+      disposition too?
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>How would you like to let it go?</h2>
+
+    <p class="subtext">
+      Choose a method of final disposition.
+    </p>
+
+    <div class="methods">
+
+      <button class="method-card immersion" type="button" [routerLink]="['/dispose', 'jal']">
+        <span class="method-symbol">🌊</span>
+        <span class="method-name">Jal</span>
+        <span class="method-description">Immersion</span>
+      </button>
+
+     <button class="method-card agni" type="button" [routerLink]="['/dispose', 'agni']">
+        <span class="method-symbol">🔥</span>
+        <span class="method-name">Agni</span>
+        <span class="method-description">Incineration</span>
+      </button>
+
+     <button class="method-card burial" type="button" [routerLink]="['/dispose', 'bhumi']">
+        <span class="method-symbol">🌱</span>
+        <span class="method-name">Bhumi</span>
+        <span class="method-description">Burial</span>
+      </button>
+<button class="method-card other" type="button" [routerLink]="['/dispose', 'other']">
+        <span class="method-symbol">✨</span>
+        <span class="method-name">Other</span>
+        <span class="method-description">Your way</span>
+      </button>
+
+     <button class="method-card trash" type="button" [routerLink]="['/dispose', 'trash']">
+        <span class="method-symbol">🗑️</span>
+        <span class="method-name">Just Trash It</span>
+        <span class="method-description">No ceremony</span>
+      </button>
+
+    </div>
+
+    <p class="privacy-note">
+      Your documents stay on your computer.
+      Nothing needs to be uploaded.
+    </p>
+
+  </section>
+
+</main>

@@ -1,0 +1,51 @@
+<div class="disposal">
+
+  <h1>Final Disposition</h1>
+
+  <p>
+    Method selected: <strong>{{ method }}</strong>
+  </p>
+
+  <div class="file-selection" *ngIf="!selectedFile">
+
+    <h2>Select the grantha</h2>
+
+    <p>
+      Choose the document you wish to give its final disposition.
+    </p>
+
+    <button type="button" (click)="selectFile()">
+      Select Document
+    </button>
+
+  </div>
+
+  <div class="confirmation" *ngIf="selectedFile">
+
+    <h2>Confirm Final Disposition</h2>
+
+    <p>
+      You have selected:
+    </p>
+
+    <p class="selected-file">
+      <strong>{{ selectedFile.name }}</strong>
+    </p>
+
+    <p>
+      This action will permanently remove this document from your computer.
+    </p>
+
+    <button type="button" (click)="confirmDisposition()">
+      Proceed with Final Disposition
+    </button>
+
+    <button type="button" (click)="selectFile()">
+      Choose a Different Document
+    </button>
+
+  </div>
+
+  <a routerLink="/">← Back</a>
+
+</div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "grantha-antyeshti": {
+    "digi-granthantyeshti": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/grantha-antyeshti",
+            "outputPath": "dist/digi-granthantyeshti",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "grantha-antyeshti:build:production"
+              "browserTarget": "digi-granthantyeshti:build:production"
             },
             "development": {
-              "browserTarget": "grantha-antyeshti:build:development"
+              "browserTarget": "digi-granthantyeshti:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "grantha-antyeshti:build"
+            "browserTarget": "digi-granthantyeshti:build"
           }
         },
         "test": {

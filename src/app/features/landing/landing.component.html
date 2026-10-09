@@ -1,7 +1,9 @@
 <header class="site-header">
- <div class="brand">
-  <span class="brand-main">Digi-Granth<span class="brand-faded">Antyeshti</span></span>
-</div>  
+  <div class="brand">
+    <span class="brand-main">
+      Digi-Granth<span class="brand-faded">Antyeshti</span>
+    </span>
+  </div>
 
   <nav>
     <a href="#">Home</a>
@@ -28,7 +30,7 @@
       book, or manuscript.
     </p>
 
-    <p class="intro">
+    <p class="intro final-thought">
       So why shouldn't your digital grantha receive a proper final
       disposition too?
     </p>
@@ -43,30 +45,46 @@
 
     <div class="methods">
 
-      <button class="method-card immersion" type="button" [routerLink]="['/dispose', 'jal']">
+      <button
+        class="method-card immersion"
+        type="button"
+        [routerLink]="['/dispose', 'jal']">
         <span class="method-symbol">🌊</span>
         <span class="method-name">Jal</span>
         <span class="method-description">Immersion</span>
       </button>
 
-     <button class="method-card agni" type="button" [routerLink]="['/dispose', 'agni']">
+      <button
+        class="method-card agni"
+        type="button"
+        [routerLink]="['/dispose', 'agni']">
         <span class="method-symbol">🔥</span>
         <span class="method-name">Agni</span>
         <span class="method-description">Incineration</span>
       </button>
 
-     <button class="method-card burial" type="button" [routerLink]="['/dispose', 'bhumi']">
+      <button
+        class="method-card burial"
+        type="button"
+        [routerLink]="['/dispose', 'bhumi']">
         <span class="method-symbol">🌱</span>
         <span class="method-name">Bhumi</span>
         <span class="method-description">Burial</span>
       </button>
-<button class="method-card other" type="button" [routerLink]="['/dispose', 'other']">
+
+      <button
+        class="method-card other"
+        type="button"
+        [routerLink]="['/dispose', 'other']">
         <span class="method-symbol">✨</span>
         <span class="method-name">Other</span>
         <span class="method-description">Your way</span>
       </button>
 
-     <button class="method-card trash" type="button" [routerLink]="['/dispose', 'trash']">
+      <button
+        class="method-card trash"
+        type="button"
+        [routerLink]="['/dispose', 'trash']">
         <span class="method-symbol">🗑️</span>
         <span class="method-name">Just Trash It</span>
         <span class="method-description">No ceremony</span>

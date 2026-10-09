@@ -1,51 +1,118 @@
-<div class="disposal">
 
-  <h1>Final Disposition</h1>
+<div class="disposal" [ngClass]="'method-' + method">
 
-  <p>
-    Method selected: <strong>{{ method }}</strong>
-  </p>
+  <!-- Completion -->
+  <div *ngIf="completed" class="completion">
 
-  <div class="file-selection" *ngIf="!selectedFile">
+    <div class="completion-symbol">
+      {{ completedSymbol }}
+    </div>
 
-    <h2>Select the grantha</h2>
+    <h1>{{ completedTitle }}</h1>
 
-    <p>
-      Choose the document you wish to give its final disposition.
+    <p class="completed-file">
+      <strong>{{ completedFileName }}</strong>
     </p>
 
-    <button type="button" (click)="selectFile()">
-      Select Document
-    </button>
+    <p class="completion-message">
+      {{ completedMessage }}
+    </p>
+
+    <p class="bypass-notice" *ngIf="bypassDeletion">
+      Actual deletion is coming soon.
+    </p>
+
+    <a routerLink="/">Return Home</a>
 
   </div>
 
-  <div class="confirmation" *ngIf="selectedFile">
 
-    <h2>Confirm Final Disposition</h2>
+  <!-- Active disposal flow -->
+  <div *ngIf="!completed" class="disposal-content">
 
-    <p>
-      You have selected:
+    <div class="method-symbol">
+      {{ completedSymbol }}
+    </div>
+
+    <p class="method-label">
+      {{ method | uppercase }}
     </p>
 
-    <p class="selected-file">
-      <strong>{{ selectedFile.name }}</strong>
+    <h1>Final Disposition</h1>
+
+    <p class="method-description">
+      Choose the grantha to receive its final disposition.
     </p>
 
-    <p>
-      This action will permanently remove this document from your computer.
-    </p>
 
-    <button type="button" (click)="confirmDisposition()">
-      Proceed with Final Disposition
-    </button>
+    <!-- Select file -->
+    <div class="file-selection" *ngIf="!selectedFile">
 
-    <button type="button" (click)="selectFile()">
-      Choose a Different Document
-    </button>
+      <h2>Select the grantha</h2>
+
+      <p>
+        Choose the document you wish to give its final disposition.
+      </p>
+
+      <button type="button" (click)="selectFile()">
+        Select Document
+      </button>
+
+    </div>
+
+
+    <!-- Confirmation -->
+    <div class="confirmation" *ngIf="selectedFile">
+
+      <h2>Confirm Final Disposition</h2>
+
+      <p>You have selected:</p>
+
+      <p class="selected-file">
+        <strong>{{ selectedFile.name }}</strong>
+      </p>
+
+      <p>
+        This document is ready for its final disposition.
+      </p>
+
+      <div class="permission-notice">
+
+        <strong>NOTE — Browser confirmation</strong>
+
+        <span>
+        Your browser will ask for permission by displaying a pop-up which says something like:
+
+“Save changes to {{ selectedFile.name }}?”
+
+with “Cancel” and “Save Changes” buttons.
+
+ THIS is the confirmation. 
+
+Click  “Save Changes” to proceed with the final disposition.
+
+        </span>
+
+      </div>
+
+      <button
+        type="button"
+        class="primary-action"
+        (click)="confirmDisposition()">
+        Proceed with Final Disposition
+      </button>
+
+      <button
+        type="button"
+        class="secondary-action"
+        (click)="selectFile()">
+        Choose a Different Document
+      </button>
+
+    </div>
+
+    <a class="back-link" routerLink="/">← Back</a>
 
   </div>
-
-  <a routerLink="/">← Back</a>
 
 </div>

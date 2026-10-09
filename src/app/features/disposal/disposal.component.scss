@@ -1,0 +1,374 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.disposal {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 70px 24px;
+  color: #302f29;
+
+  transition:
+    background 300ms ease,
+    color 300ms ease;
+}
+
+.disposal-content,
+.completion {
+  width: min(100%, 760px);
+  padding: 58px 64px 52px;
+  text-align: center;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 250, 0.94);
+
+  border: 1px solid rgba(70, 70, 55, 0.14);
+
+  box-shadow:
+    0 22px 55px rgba(45, 45, 35, 0.13),
+    0 4px 10px rgba(45, 45, 35, 0.07);
+}
+
+.method-symbol {
+  font-size: 44px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.method-label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: #77776d;
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.method-description {
+  margin: 12px auto 36px;
+  color: #717168;
+  font-size: 15px;
+}
+
+.file-selection,
+.confirmation {
+  padding: 34px 28px;
+  border-radius: 14px;
+  background: rgba(250, 250, 245, 0.72);
+  border: 1px solid rgba(80, 80, 60, 0.12);
+}
+
+.file-selection p,
+.confirmation p {
+  color: #6d6d64;
+  line-height: 1.6;
+}
+
+button {
+  border: 0;
+  border-radius: 9px;
+  padding: 13px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.primary-action,
+.file-selection button {
+  margin-top: 12px;
+  background: #3f4038;
+  color: #fff;
+
+  box-shadow:
+    0 4px 10px rgba(40, 40, 30, 0.16),
+    inset 0 1px rgba(255, 255, 255, 0.16);
+}
+
+.secondary-action {
+  display: block;
+  margin: 14px auto 0;
+  background: transparent;
+  color: #5f5f56;
+  border: 1px solid rgba(70, 70, 55, 0.2);
+}
+
+
+/* -------------------------------------------------
+   Browser permission notice
+   ------------------------------------------------- */
+
+.permission-notice {
+  max-width: 620px;
+  margin: 26px auto 8px;
+  padding: 17px 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  border-radius: 11px;
+
+  background: rgba(250, 242, 242, 0.95);
+  border: 1px solid rgba(125, 45, 55, 0.28);
+
+  text-align: center;
+
+  strong {
+    font-size: 15px;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    color: #7a2632;
+  }
+
+  span {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6f454a;
+  }
+}
+
+
+.selected-file {
+  margin: 18px 0;
+  font-size: 16px;
+  color: #383831 !important;
+  overflow-wrap: anywhere;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 32px;
+  color: #66665d;
+  text-decoration: none;
+  font-size: 13px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+/* -------------------------------------------------
+   Completion
+   ------------------------------------------------- */
+
+.completion-symbol {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.completion h1 {
+  margin-bottom: 18px;
+}
+
+.completed-file {
+  margin: 0 auto 20px;
+  font-size: 15px;
+  color: #4e4e47;
+  overflow-wrap: anywhere;
+}
+
+.completion-message {
+  margin: 0;
+  font-size: 16px;
+  color: #65655c;
+}
+
+.bypass-notice {
+  margin: 18px 0 0;
+  font-size: 12px;
+  font-style: italic;
+  color: #b3261e;
+}
+
+.completion a {
+  display: inline-block;
+  margin-top: 34px;
+  color: #55554c;
+  text-decoration: none;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+/* -------------------------------------------------
+   Contextual skins
+   ------------------------------------------------- */
+
+/* Jal — water */
+.method-jal {
+  background:
+    linear-gradient(
+      135deg,
+      #f4f8f8 0%,
+      #e6f0f0 100%
+    );
+
+  .disposal-content,
+  .completion {
+    border-color: rgba(80, 130, 135, 0.18);
+  }
+
+  .method-label {
+    color: #668488;
+  }
+
+  .method-description {
+    color: #687d80;
+  }
+}
+
+
+/* Agni — fire */
+.method-agni {
+  background:
+    linear-gradient(
+      135deg,
+      #faf5ed 0%,
+      #f3e7d7 100%
+    );
+
+  .disposal-content,
+  .completion {
+    border-color: rgba(155, 100, 55, 0.18);
+  }
+
+  .method-label {
+    color: #9a6848;
+  }
+
+  .method-description {
+    color: #806b5d;
+  }
+}
+
+
+/* Bhumi — earth */
+.method-bhumi {
+  background:
+    linear-gradient(
+      135deg,
+      #f5f6ef 0%,
+      #e9ecdf 100%
+    );
+
+  .disposal-content,
+  .completion {
+    border-color: rgba(95, 105, 70, 0.18);
+  }
+
+  .method-label {
+    color: #73785e;
+  }
+
+  .method-description {
+    color: #707267;
+  }
+}
+
+
+/* Other — subtle / ethereal */
+.method-other {
+  background:
+    linear-gradient(
+      135deg,
+      #f7f5f8 0%,
+      #eeeaf1 100%
+    );
+
+  .disposal-content,
+  .completion {
+    border-color: rgba(105, 90, 115, 0.16);
+  }
+
+  .method-label {
+    color: #81768a;
+  }
+
+  .method-description {
+    color: #77707b;
+  }
+}
+
+
+/* Trash — deliberately plain */
+.method-trash {
+  background:
+    linear-gradient(
+      135deg,
+      #f5f5f3 0%,
+      #eaeae7 100%
+    );
+
+  .disposal-content,
+  .completion {
+    border-color: rgba(75, 75, 70, 0.16);
+  }
+
+  .method-label {
+    color: #70706a;
+  }
+
+  .method-description {
+    color: #6e6e68;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .disposal {
+    padding: 30px 14px;
+  }
+
+  .disposal-content,
+  .completion {
+    padding: 42px 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .permission-notice {
+    padding: 14px 16px;
+
+    strong {
+      font-size: 14px;
+    }
+
+    span {
+      font-size: 13px;
+    }
+  }
+}
+

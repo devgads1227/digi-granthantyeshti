@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-main">
+      Digi-Granth<span class="brand-faded">Antyeshti</span>
+    </span>
+  </div>
+
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+  </nav>
+</header>
+
+<div class="page-content">
+  <router-outlet></router-outlet>
+</div>

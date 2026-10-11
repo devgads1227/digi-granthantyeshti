@@ -1,4 +1,75 @@
 :host {
   display: block;
   min-height: 100vh;
+  color: #292923;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 72px;
+  box-sizing: border-box;
+  padding: 0 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(80, 80, 60, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+}
+
+.brand-main {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.brand-faded {
+  font-weight: 500;
+  opacity: 0.42;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+
+  a {
+    color: #44443d;
+    text-decoration: none;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.active {
+      font-weight: 700;
+    }
+  }
+}
+
+.page-content {
+  padding-top: 72px;
+}
+
+@media (max-width: 500px) {
+  .site-header {
+    padding: 0 20px;
+  }
+
+  .brand-main {
+    font-size: 17px;
+  }
+
+  nav {
+    gap: 18px;
+  }
 }

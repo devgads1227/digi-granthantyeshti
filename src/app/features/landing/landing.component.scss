@@ -173,8 +173,8 @@ h2 {
    ------------------------------------------------- */
 
 .privacy-note {
-  margin: 30px 0 0;
-  font-size: 15px;
+  margin: 18px 0 0;
+  font-size: 14px;
   line-height: 1.5;
   font-weight: 600;
   color: #55554c;
@@ -184,6 +184,8 @@ h2 {
    Responsive
    ------------------------------------------------- */
 
+@media (max-width: 800px) {
+  
 @media (max-width: 800px) {
   .welcome-card {
     padding: 42px 28px;
@@ -197,6 +199,7 @@ h2 {
     grid-column: span 2;
   }
 }
+}
 
 @media (max-width: 500px) {
   .site-header {
@@ -207,13 +210,26 @@ h2 {
     display: none;
   }
 
-  .landing {
-    padding: 25px 12px 50px;
-  }
+.landing {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 70px 24px;
+}
 
-  .welcome-card {
-    padding: 34px 20px;
-  }
+.welcome-card {
+  width: min(100%, 760px);
+  padding: 58px 64px 52px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 250, 0.96);
+  border: 1px solid rgba(90, 90, 60, 0.14);
+  border-radius: 20px;
+  box-shadow:
+    0 22px 55px rgba(45, 45, 35, 0.13),
+    0 4px 10px rgba(45, 45, 35, 0.07);
+  text-align: center; 
+}
 
   h1 br {
     display: none;
@@ -230,4 +246,19 @@ h2 {
   .privacy-note {
     font-size: 14px;
   }
+}
+
+
+.intro {
+  max-width: 620px;
+  margin: 16px auto 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #66665d;
+  text-align: justify;
+}
+
+.final-thought {
+  margin-top: 0;
+  font-style: italic;
 }

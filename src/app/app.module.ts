@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './features/landing/landing.component';
 import { DisposalComponent } from './features/disposal/disposal.component';
-
+import { AboutComponent } from './features/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    DisposalComponent
+    DisposalComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

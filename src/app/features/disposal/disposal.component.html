@@ -8,6 +8,10 @@
       {{ completedSymbol }}
     </div>
 
+    <p class="method-label" *ngIf="method === 'ravana'">
+      DUSSEHRA SPECIAL · विजयादशमी
+    </p>
+
     <h1>{{ completedTitle }}</h1>
 
     <p class="completed-file">
@@ -19,13 +23,12 @@
     </p>
 
     <p class="bypass-notice" *ngIf="bypassDeletion">
-      Actual deletion is coming soon.
+      Demo only — the file has not been deleted.
     </p>
 
     <a routerLink="/">Return Home</a>
 
   </div>
-
 
   <!-- Active disposal flow -->
   <div *ngIf="!completed" class="disposal-content">
@@ -34,33 +37,81 @@
       {{ completedSymbol }}
     </div>
 
-    <p class="method-label">
+    <p class="method-label" *ngIf="method !== 'ravana'">
       {{ method | uppercase }}
     </p>
 
-    <h1>Final Disposition</h1>
- 
+    <p class="method-label ravana-eyebrow" *ngIf="method === 'ravana'">
+      DUSSEHRA SPECIAL · विजयादशमी
+    </p>
+
+    <h1 [ngSwitch]="method">
+      <span *ngSwitchCase="'jal'">Final Disposition by Immersion</span>
+      <span *ngSwitchCase="'agni'">Final Disposition by Incineration</span>
+      <span *ngSwitchCase="'bhumi'">Final Disposition by Burial</span>
+      <span *ngSwitchCase="'trash'">No Ceremony Necessary</span>
+      <span *ngSwitchCase="'ravana'">Ravana Dahan — रावण दहन</span>
+      <span *ngSwitchDefault>Final Disposition</span>
+    </h1>
+
+    <p class="method-description" *ngIf="method === 'ravana'">
+      This Dussehra, let your digital Ravana go.
+      Give that unwanted file occupying space on your disk its
+      own symbolic farewell.
+    </p>
 
     <!-- Select file -->
     <div class="file-selection" *ngIf="!selectedFile">
 
-      <h2>Select the grantha</h2>
+      <h2 [ngSwitch]="method">
+        <span *ngSwitchCase="'jal'">Select the grantha to immerse</span>
+        <span *ngSwitchCase="'agni'">Select the grantha to cast into the fire</span>
+        <span *ngSwitchCase="'bhumi'">Select the grantha to return to the earth</span>
+        <span *ngSwitchCase="'trash'">Select the file to discard</span>
+        <span *ngSwitchCase="'ravana'">Select the Ravana to vanquish</span>
+        <span *ngSwitchDefault>Select the grantha</span>
+      </h2>
 
-      <p>
-        Choose the document you wish to give its final disposition.
+      <p [ngSwitch]="method">
+        <span *ngSwitchCase="'jal'">
+          Choose the document you wish to immerse.
+        </span>
+        <span *ngSwitchCase="'agni'">
+          Choose the document you wish to cast into the fire.
+        </span>
+        <span *ngSwitchCase="'bhumi'">
+          Choose the document you wish to return to the earth.
+        </span>
+        <span *ngSwitchCase="'trash'">
+          Choose the file you wish to discard.
+        </span>
+        <span *ngSwitchCase="'ravana'">
+          Choose the document, image, video, or other file you no
+          longer need. Today, that file is your digital Ravana.
+        </span>
+        <span *ngSwitchDefault>
+          Choose the document you wish to give its final disposition.
+        </span>
       </p>
 
       <button type="button" (click)="selectFile()">
-        Select Document
+        <span [ngSwitch]="method">
+          <span *ngSwitchCase="'ravana'">Select File to Vanquish</span>
+          <span *ngSwitchCase="'trash'">Select File</span>
+          <span *ngSwitchDefault>Select Document</span>
+        </span>
       </button>
 
     </div>
 
-
     <!-- Confirmation -->
     <div class="confirmation" *ngIf="selectedFile">
 
-      <h2>Confirm Final Disposition</h2>
+      <h2 [ngSwitch]="method">
+        <span *ngSwitchCase="'ravana'">Confirm Ravana Dahan</span>
+        <span *ngSwitchCase="'trash'">Confirm File Disposal</span>
+        <span *ngSwitchDefault>Confirm Final Disposition</span>
+      </h2>
 
       <p>You have selected:</p>
 
@@ -68,25 +119,41 @@
         <strong>{{ selectedFile.name }}</strong>
       </p>
 
-      <p>
-        This document is ready for its final disposition.
+      <p [ngSwitch]="method">
+        <span *ngSwitchCase="'jal'">
+          This document is ready for symbolic immersion.
+        </span>
+        <span *ngSwitchCase="'agni'">
+          This document is ready to be cast into the fire.
+        </span>
+        <span *ngSwitchCase="'bhumi'">
+          This document is ready to be returned to the earth.
+        </span>
+        <span *ngSwitchCase="'trash'">
+          This file is ready to be discarded.
+        </span>
+        <span *ngSwitchCase="'ravana'">
+          Your digital Ravana is ready to be vanquished.
+          Are you sure you want to permanently delete this file?
+        </span>
+        <span *ngSwitchDefault>
+          This document is ready for its final disposition.
+        </span>
       </p>
 
       <div class="permission-notice">
 
-        <strong>NOTE — Browser confirmation</strong>
+        <strong>
+          <span *ngIf="method === 'ravana'">Before the flames: please confirm</span>
+          <span *ngIf="method !== 'ravana'">Important — permanent deletion</span>
+        </strong>
 
         <span>
-        Your browser will ask for permission by displaying a pop-up which says something like:
-
-“Save changes to {{ selectedFile.name }}?”
-
-with “Cancel” and “Save Changes” buttons.
-
- THIS is the confirmation. 
-
-Click  “Save Changes” to proceed with the final disposition.
-
+          When you proceed, your browser may ask you to grant
+          permission to modify the selected file. If permission
+          is granted, this app will permanently delete that file
+          from its current location. This action may not be
+          reversible. Make sure you have selected the right file.
         </span>
 
       </div>
@@ -95,14 +162,20 @@ Click  “Save Changes” to proceed with the final disposition.
         type="button"
         class="primary-action"
         (click)="confirmDisposition()">
-        Proceed with Final Disposition
+
+        <span [ngSwitch]="method">
+          <span *ngSwitchCase="'ravana'">🔥 Proceed with Ravana Dahan</span>
+          <span *ngSwitchCase="'trash'">Discard File</span>
+          <span *ngSwitchDefault>Proceed with Final Disposition</span>
+        </span>
+
       </button>
 
       <button
         type="button"
         class="secondary-action"
         (click)="selectFile()">
-        Choose a Different Document
+        Choose a Different File
       </button>
 
     </div>

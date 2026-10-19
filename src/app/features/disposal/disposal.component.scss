@@ -372,3 +372,104 @@ button {
   }
 }
 
+/* -------------------------------------------------
+   Ravana Dahan — Dussehra special
+   ------------------------------------------------- */
+
+.method-ravana {
+  color: #512719;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255, 205, 112, 0.38),
+      transparent 55%
+    ),
+    linear-gradient(135deg, #fff5e4 0%, #f5dfc1 52%, #f7ead9 100%);
+
+  .disposal-content,
+  .completion {
+    background: rgba(255, 251, 242, 0.97);
+    border: 1px solid rgba(184, 111, 36, 0.32);
+    box-shadow:
+      0 22px 55px rgba(111, 51, 22, 0.15),
+      0 4px 10px rgba(111, 51, 22, 0.08);
+  }
+
+  .method-symbol,
+  .completion-symbol {
+    filter: drop-shadow(0 3px 5px rgba(151, 62, 19, 0.14));
+  }
+
+  .method-label {
+    color: #a14b20;
+  }
+
+  h1 {
+    color: #702d1c;
+  }
+
+  .method-description {
+    max-width: 570px;
+    line-height: 1.7;
+    color: #80543b;
+  }
+
+  .file-selection,
+  .confirmation {
+    background: rgba(255, 244, 224, 0.75);
+    border-color: rgba(184, 111, 36, 0.22);
+  }
+
+  .file-selection h2,
+  .confirmation h2 {
+    color: #74351e;
+  }
+
+  .file-selection button,
+  .primary-action {
+    background: linear-gradient(135deg, #a74620, #7c291a);
+    color: #fff8e9;
+    box-shadow:
+      0 4px 12px rgba(124, 41, 26, 0.2),
+      inset 0 1px rgba(255, 255, 255, 0.16);
+
+    &:hover {
+      box-shadow: 0 7px 16px rgba(124, 41, 26, 0.25);
+    }
+  }
+
+  .permission-notice {
+    background: #fff0d9;
+    border-color: rgba(165, 76, 29, 0.32);
+
+    strong {
+      color: #853718;
+    }
+
+    span {
+      color: #754b35;
+    }
+  }
+
+  .completion-message {
+    color: #80503a;
+  }
+
+  .completion a,
+  .back-link {
+    color: #854526;
+  }
+
+  .completed-file {
+    color: #603622;
+  }
+}
+
+.ravana-eyebrow {
+  letter-spacing: 0.15em;
+}
+
+.method-ravana .bypass-notice {
+  color: #a14b20;
+}
+

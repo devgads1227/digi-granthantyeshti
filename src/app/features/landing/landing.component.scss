@@ -262,3 +262,200 @@ h2 {
   margin-top: 0;
   font-style: italic;
 }
+
+
+/* -------------------------------------------------
+   Dussehra Special — Ravana Dahan
+   ------------------------------------------------- */
+
+.ravana-feature {
+  margin: 30px 0 32px;
+}
+
+.ravana-card {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 190px;
+  padding: 26px 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  text-align: left;
+  color: #fff7e8;
+  background:
+    radial-gradient(
+      circle at 12% 50%,
+      rgba(255, 190, 75, 0.23),
+      transparent 32%
+    ),
+    linear-gradient(115deg, #642719 0%, #963b1f 52%, #572018 100%);
+
+  border: 2px solid #d6a34b;
+  border-radius: 16px;
+  box-shadow:
+    0 8px 22px rgba(100, 39, 25, 0.16),
+    inset 0 0 0 4px rgba(255, 222, 153, 0.07);
+
+  cursor: pointer;
+  font: inherit;
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: #f4d28c;
+    box-shadow: 0 13px 28px rgba(100, 39, 25, 0.24);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #e0a33b;
+    outline-offset: 4px;
+  }
+}
+
+.ravana-art {
+  flex: 0 0 112px;
+  width: 112px;
+  min-height: 112px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  background: rgba(255, 225, 166, 0.10);
+  border: 1px solid rgba(255, 220, 151, 0.35);
+  border-radius: 50%;
+}
+
+.ravana-crown {
+  font-size: 35px;
+  line-height: 1.1;
+}
+
+.ravana-flame {
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+.ravana-copy {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ravana-eyebrow {
+  color: #ffdc91;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.ravana-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+
+  color: #fff7e8;
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.ravana-hindi {
+  color: #ffdc91;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ravana-description {
+  max-width: 690px;
+  color: #fff0d8;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.ravana-disclaimer {
+  color: #ffdda0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.ravana-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-top: 4px;
+  padding: 10px 17px;
+
+  color: #642719;
+  background: #ffdc91;
+  border: 1px solid #ffe8b8;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.ravana-card:hover .ravana-cta {
+  background: #fff0c8;
+}
+
+@media (max-width: 600px) {
+  .ravana-feature {
+    margin: 24px 0 28px;
+  }
+
+  .ravana-card {
+    padding: 22px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .ravana-art {
+    flex-basis: auto;
+    width: 76px;
+    min-height: 76px;
+  }
+
+  .ravana-crown {
+    font-size: 25px;
+  }
+
+  .ravana-flame {
+    font-size: 30px;
+  }
+
+  .ravana-title {
+    gap: 7px;
+  }
+
+  .ravana-hindi {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ravana-card {
+    transition: none;
+  }
+
+  .ravana-card:hover {
+    transform: none;
+  }
+}

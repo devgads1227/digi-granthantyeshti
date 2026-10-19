@@ -89,7 +89,9 @@ export class DisposalComponent implements OnInit {
 
   private setMethodExperience(): void {
     switch (this.method) {
-
+      case 'ravana':
+        this.completedSymbol = '🔥';
+        break;
       case 'jal':
         this.completedSymbol = '🌊';
         break;
@@ -110,6 +112,10 @@ export class DisposalComponent implements OnInit {
         this.completedSymbol = '🗑️';
         break;
 
+      case 'ravana':
+        this.completedSymbol = '🔥';
+        break;
+
       default:
         this.completedSymbol = '✓';
     }
@@ -117,7 +123,12 @@ export class DisposalComponent implements OnInit {
 
   private setCompletionExperience(): void {
     switch (this.method) {
-
+      case 'ravana':
+        this.completedSymbol = '🔥';
+        this.completedTitle = 'Ravana Dahan Complete!';
+        this.completedMessage =
+          'Your digital Ravana has met its end. May your disk have a little more room for what matters.';
+        break;
       case 'jal':
         this.completedSymbol = '🌊';
         this.completedTitle = 'Immersion Complete';
@@ -153,6 +164,13 @@ export class DisposalComponent implements OnInit {
           'Gone. No ceremony necessary.';
         break;
 
+      case 'ravana':
+        this.completedSymbol = '🔥';
+        this.completedTitle = 'Ravana Dahan Complete!';
+        this.completedMessage =
+          'Your digital Ravana has met its end. May your disk have a little more room for what matters.';
+        break;
+
       default:
         this.completedSymbol = '✓';
         this.completedTitle = 'Final Disposition Complete';
@@ -161,4 +179,3 @@ export class DisposalComponent implements OnInit {
     }
   }
 }
-

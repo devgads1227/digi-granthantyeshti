@@ -3,10 +3,7 @@
 
   <!-- Completion -->
   <div *ngIf="completed" class="completion">
-
-    <div class="completion-symbol">
-      {{ completedSymbol }}
-    </div>
+    <div class="completion-symbol">{{ completedSymbol }}</div>
 
     <p class="method-label" *ngIf="method === 'ravana'">
       DUSSEHRA SPECIAL · विजयादशमी
@@ -18,24 +15,19 @@
       <strong>{{ completedFileName }}</strong>
     </p>
 
-    <p class="completion-message">
-      {{ completedMessage }}
-    </p>
+    <p class="completion-message">{{ completedMessage }}</p>
 
     <p class="bypass-notice" *ngIf="bypassDeletion">
       Demo only — the file has not been deleted.
     </p>
 
     <a routerLink="/">Return Home</a>
-
   </div>
 
-  <!-- Active disposal flow -->
+  <!-- Main disposal content -->
   <div *ngIf="!completed" class="disposal-content">
 
-    <div class="method-symbol">
-      {{ completedSymbol }}
-    </div>
+    <div class="method-symbol">{{ completedSymbol }}</div>
 
     <p class="method-label" *ngIf="method !== 'ravana'">
       {{ method | uppercase }}
@@ -60,7 +52,7 @@
       own symbolic farewell.
     </p>
 
-    <!-- Select file -->
+    <!-- File selection -->
     <div class="file-selection" *ngIf="!selectedFile">
 
       <h2 [ngSwitch]="method">
@@ -113,72 +105,79 @@
         <span *ngSwitchDefault>Confirm Final Disposition</span>
       </h2>
 
-      <p>You have selected:</p>
+      <!-- Selected file label and filename on one row -->
+      <div class="selected-file-row">
+        <span>You have selected:</span>
+        <span class="selected-file">
+          <strong>{{ selectedFile.name }}</strong>
+        </span>
+      </div>
 
-      <p class="selected-file">
-        <strong>{{ selectedFile.name }}</strong>
-      </p>
+      <!-- Preview and options side by side -->
+      <div class="preview-options-row">
 
-<!-- Preview and animation controls -->
-<div class="file-options">
+        <!-- File preview -->
+        <div
+          class="preview-stage"
+          *ngIf="previewEnabled"
+          [class.dissolving]="isDissolving">
 
-  <label class="option-checkbox">
-    <input
-      type="checkbox"
-      [checked]="previewEnabled"
-      (click)="$event.stopPropagation()"
-      (change)="onPreviewToggle($event)"><span>Preview / represent selected file <em>(actual preview for image files only, the rest are icon representation)</em></span>
-  </label>
+          <img
+            *ngIf="previewKind === 'image' && previewUrl"
+            class="preview-image"
+            [src]="previewUrl"
+            [alt]="selectedFile.name">
 
-  <label class="option-checkbox">
-    <input
-      type="checkbox"
-      [checked]="animateDisposal"
-      (click)="$event.stopPropagation()"
-      (change)="onAnimationToggle($event)">
-   <span>Animate disposal</span>
-  </label>
+          <div class="file-representation" *ngIf="previewKind === 'pdf'">
+            <span class="representation-icon" aria-hidden="true">📄</span>
+            <span class="representation-name">{{ selectedFile.name }}</span>
+            <span class="representation-type">PDF document</span>
+          </div>
 
-</div>
+          <div class="file-representation" *ngIf="previewKind === 'video'">
+            <span class="representation-icon" aria-hidden="true">🎥</span>
+            <span class="representation-name">{{ selectedFile.name }}</span>
+            <span class="representation-type">Video</span>
+          </div>
 
-<!-- Preview stage -->
-<div
-  class="preview-stage"
-  *ngIf="previewEnabled"
-  [class.dissolving]="isDissolving">
+          <div
+            class="file-representation"
+            *ngIf="previewKind === 'other' || (previewKind === 'image' && !previewUrl)">
+            <span class="representation-icon" aria-hidden="true">📁</span>
+            <span class="representation-name">{{ selectedFile.name }}</span>
+            <span class="representation-type">Other</span>
+          </div>
 
-  <!-- Images: actual image, fitted without distortion -->
-  <img
-    *ngIf="previewKind === 'image' && previewUrl"
-    class="preview-image"
-    [src]="previewUrl"
-    [alt]="selectedFile.name">
+        </div>
 
-  <!-- PDFs -->
-  <div class="file-representation" *ngIf="previewKind === 'pdf'">
-    <span class="representation-icon" aria-hidden="true">📄</span>
-    <span class="representation-name">{{ selectedFile.name }}</span>
-    <span class="representation-type">PDF document</span>
-  </div>
+        <!-- Preview and animation options -->
+        <div class="file-options">
 
-  <!-- Videos -->
-  <div class="file-representation" *ngIf="previewKind === 'video'">
-    <span class="representation-icon" aria-hidden="true">🎥</span>
-    <span class="representation-name">{{ selectedFile.name }}</span>
-    <span class="representation-type">Video</span>
-  </div>
+          <label class="option-checkbox">
+            <input
+              type="checkbox"
+              [checked]="previewEnabled"
+              (click)="$event.stopPropagation()"
+              (change)="onPreviewToggle($event)">
+            <span>
+              Preview / represent selected file
+              <em>(actual preview for image files only; other files use an icon representation)</em>
+            </span>
+          </label>
 
-  <!-- Other file types, and fallback if an image preview is unavailable -->
-  <div
-    class="file-representation"
-    *ngIf="previewKind === 'other' || (previewKind === 'image' && !previewUrl)">
-    <span class="representation-icon" aria-hidden="true">📁</span>
-    <span class="representation-name">{{ selectedFile.name }}</span>
-    <span class="representation-type">Other</span>
-  </div>
+          <label class="option-checkbox">
+            <input
+              type="checkbox"
+              [checked]="animateDisposal"
+              (click)="$event.stopPropagation()"
+              (change)="onAnimationToggle($event)">
+            <span>Animate disposal</span>
+          </label>
 
-</div>
+        </div>
+      </div>
 
+      <!-- Method-specific confirmation message -->
       <p [ngSwitch]="method">
         <span *ngSwitchCase="'jal'">
           This document is ready for symbolic immersion.
@@ -201,11 +200,16 @@
         </span>
       </p>
 
+      <!-- Permanent deletion warning -->
       <div class="permission-notice">
 
         <strong>
-          <span *ngIf="method === 'ravana'">Before the flames: please confirm</span>
-          <span *ngIf="method !== 'ravana'">Important — permanent deletion</span>
+          <span *ngIf="method === 'ravana'">
+            Before the flames: please confirm
+          </span>
+          <span *ngIf="method !== 'ravana'">
+            Important — permanent deletion
+          </span>
         </strong>
 
         <span>
@@ -218,31 +222,36 @@
 
       </div>
 
-     <button
-  type="button"
-  class="primary-action"
-  [disabled]="isDisposing"
-  (click)="confirmDisposition()">
+      <!-- Actions on one row -->
+      <div class="action-buttons">
 
-        <span [ngSwitch]="method">
-          <span *ngSwitchCase="'ravana'">🔥 Proceed with Ravana Dahan</span>
-          <span *ngSwitchCase="'trash'">Discard File</span>
-          <span *ngSwitchDefault>Proceed with Final Disposition</span>
-        </span>
+        <button
+          type="button"
+          class="primary-action"
+          [disabled]="isDisposing"
+          (click)="confirmDisposition()">
 
-      </button>
+          <span [ngSwitch]="method">
+            <span *ngSwitchCase="'ravana'">🔥 Proceed with Ravana Dahan</span>
+            <span *ngSwitchCase="'trash'">Discard File</span>
+            <span *ngSwitchDefault>Proceed with Final Disposition</span>
+          </span>
 
-      <button
-        type="button"
-        class="secondary-action"
-        (click)="selectFile()">
-        Choose a Different File
-      </button>
+        </button>
+
+        <button
+          type="button"
+          class="secondary-action"
+          [disabled]="isDisposing"
+          (click)="selectFile()">
+          Choose a Different File
+        </button>
+
+      </div>
 
     </div>
 
     <a class="back-link" routerLink="/">← Back</a>
 
   </div>
-
 </div>

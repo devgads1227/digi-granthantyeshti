@@ -888,3 +888,285 @@ button {
     animation-duration: 1ms;
   }
 }
+
+/* -------------------------------------------------
+   Compact disposal layout
+   ------------------------------------------------- */
+
+/* Reduce the outer page spacing */
+.disposal {
+  padding: 28px 18px;
+}
+
+/* Compact the main card */
+.disposal-content,
+.completion {
+  box-sizing: border-box;
+  width: min(100%, 900px);
+  padding: 28px 34px 26px;
+  border-radius: 16px;
+}
+
+/* Reduce heading and symbol spacing */
+.method-symbol {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.method-label {
+  margin-bottom: 6px;
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 29px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.method-description {
+  margin: 8px auto 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Compact the inner card */
+.file-selection,
+.confirmation {
+  box-sizing: border-box;
+  padding: 20px 22px;
+  border-radius: 12px;
+}
+
+.file-selection p,
+.confirmation p {
+  line-height: 1.45;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+/* Selected label and filename */
+.selected-file-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 14px;
+  color: #6d6d64;
+  font-size: 14px;
+}
+
+.selected-file-row .selected-file {
+  margin: 0;
+  min-width: 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* Preview left, options right */
+.preview-options-row {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+  margin: 14px 0 18px;
+  text-align: left;
+}
+
+.preview-options-row .preview-stage {
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  margin: 0;
+}
+
+.preview-options-row .file-options {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  gap: 16px;
+}
+
+.option-checkbox {
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Tighter permission notice */
+.permission-notice {
+  margin: 16px auto 8px;
+  padding: 12px 16px;
+  gap: 5px;
+}
+
+.permission-notice strong {
+  font-size: 14px;
+}
+
+.permission-notice span {
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* Action buttons share a row */
+.action-buttons {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.action-buttons button {
+  margin: 0;
+}
+
+.action-buttons .secondary-action {
+  display: inline-block;
+}
+
+button {
+  padding: 11px 16px;
+  font-size: 13px;
+}
+
+/* Keep the existing 300px preview; stack the layout on mobile */
+@media (max-width: 650px) {
+  .disposal {
+    padding: 16px 10px;
+  }
+
+  .disposal-content,
+  .completion {
+    padding: 24px 16px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .file-selection,
+  .confirmation {
+    padding: 16px 12px;
+  }
+
+  .preview-options-row {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 16px;
+  }
+
+  .preview-options-row .file-options {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+
+  .back-link {
+    margin-top: 18px;
+  }
+}
+
+/* -------------------------------------------------
+   Compact layout — vertical spacing refinement
+   ------------------------------------------------- */
+
+.disposal {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.disposal-content,
+.completion {
+  padding-top: 20px;
+  padding-bottom: 18px;
+}
+
+.method-symbol {
+  margin-bottom: 5px;
+}
+
+.method-label {
+  margin-bottom: 4px;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+.method-description {
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+
+.file-selection,
+.confirmation {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.file-selection p,
+.confirmation p {
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+.selected-file-row {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.preview-options-row {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.preview-options-row .file-options {
+  gap: 12px;
+}
+
+.permission-notice {
+  margin-top: 10px;
+  margin-bottom: 6px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.action-buttons {
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.back-link {
+  margin-top: 16px;
+}
+
+.completion-symbol {
+  margin-bottom: 12px;
+}
+
+.completion h1 {
+  margin-bottom: 10px;
+}
+
+.completed-file {
+  margin-bottom: 10px;
+}
+
+.completion a {
+  margin-top: 18px;
+}

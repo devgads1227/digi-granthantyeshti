@@ -172,3 +172,45 @@ h2 {
     padding: 12px;
   }
 }
+
+.dassera-special {
+  margin: 1.5rem 0 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(145deg, #fbf4e5, #efe0c3);
+  border: 1px solid #d6b777;
+  border-radius: 10px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(160, 119, 53, 0.12),
+    0 4px 8px rgba(75, 52, 20, 0.14);
+}
+
+.dassera-eyebrow {
+  margin-bottom: 0.4rem;
+  color: #8b4b18;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.dassera-special h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #70401f;
+}
+
+.dassera-special .body-copy {
+  margin-bottom: 0.75rem;
+}
+
+.dassera-link {
+  display: inline-block;
+  margin-top: 0.25rem;
+  color: #7c351d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dassera-link:hover {
+  text-decoration: underline;
+}

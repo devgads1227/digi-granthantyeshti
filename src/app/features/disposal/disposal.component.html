@@ -119,6 +119,66 @@
         <strong>{{ selectedFile.name }}</strong>
       </p>
 
+<!-- Preview and animation controls -->
+<div class="file-options">
+
+  <label class="option-checkbox">
+    <input
+      type="checkbox"
+      [checked]="previewEnabled"
+      (click)="$event.stopPropagation()"
+      (change)="onPreviewToggle($event)"><span>Preview / represent selected file <em>(actual preview for image files only, the rest are icon representation)</em></span>
+  </label>
+
+  <label class="option-checkbox">
+    <input
+      type="checkbox"
+      [checked]="animateDisposal"
+      (click)="$event.stopPropagation()"
+      (change)="onAnimationToggle($event)">
+   <span>Animate disposal</span>
+  </label>
+
+</div>
+
+<!-- Preview stage -->
+<div
+  class="preview-stage"
+  *ngIf="previewEnabled"
+  [class.dissolving]="isDissolving">
+
+  <!-- Images: actual image, fitted without distortion -->
+  <img
+    *ngIf="previewKind === 'image' && previewUrl"
+    class="preview-image"
+    [src]="previewUrl"
+    [alt]="selectedFile.name">
+
+  <!-- PDFs -->
+  <div class="file-representation" *ngIf="previewKind === 'pdf'">
+    <span class="representation-icon" aria-hidden="true">📄</span>
+    <span class="representation-name">{{ selectedFile.name }}</span>
+    <span class="representation-type">PDF document</span>
+  </div>
+
+  <!-- Videos -->
+  <div class="file-representation" *ngIf="previewKind === 'video'">
+    <span class="representation-icon" aria-hidden="true">🎥</span>
+    <span class="representation-name">{{ selectedFile.name }}</span>
+    <span class="representation-type">Video</span>
+  </div>
+
+  <!-- Other file types, and fallback if an image preview is unavailable -->
+  <div
+    class="file-representation"
+    *ngIf="previewKind === 'other' || (previewKind === 'image' && !previewUrl)">
+    <span class="representation-icon" aria-hidden="true">📁</span>
+    <span class="representation-name">{{ selectedFile.name }}</span>
+    <span class="representation-type">Other</span>
+  </div>
+
+</div>
+
       <p [ngSwitch]="method">
         <span *ngSwitchCase="'jal'">
           This document is ready for symbolic immersion.
@@ -158,10 +218,11 @@
 
       </div>
 
-      <button
-        type="button"
-        class="primary-action"
-        (click)="confirmDisposition()">
+     <button
+  type="button"
+  class="primary-action"
+  [disabled]="isDisposing"
+  (click)="confirmDisposition()">
 
         <span [ngSwitch]="method">
           <span *ngSwitchCase="'ravana'">🔥 Proceed with Ravana Dahan</span>
